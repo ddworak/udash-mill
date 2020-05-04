@@ -24,20 +24,15 @@ object Deps {
   val scalamockVersion = "4.1.0"
 
   val shareDeps = Agg(
-    ivy"io.udash::udash-core:$udashVersion",
-    ivy"io.udash::udash-rpc:$udashVersion",
-    ivy"io.udash::udash-rest:$udashVersion",
-    ivy"io.udash::udash-i18n:$udashVersion",
-    ivy"io.udash::udash-css:$udashVersion",
-    ivy"io.udash::udash-auth:$udashVersion",
+    ivy"io.udash::udash-core::$udashVersion",
+    ivy"io.udash::udash-rpc::$udashVersion",
+    ivy"io.udash::udash-rest::$udashVersion",
+    ivy"io.udash::udash-i18n::$udashVersion",
+    ivy"io.udash::udash-css::$udashVersion",
+    ivy"io.udash::udash-auth::$udashVersion",
   )
 
   val frontendDeps = Agg(
-    ivy"io.udash::udash-core:$udashVersion",
-    ivy"io.udash::udash-rpc:$udashVersion",
-    ivy"io.udash::udash-i18n:$udashVersion",
-    ivy"io.udash::udash-css:$udashVersion",
-    ivy"io.udash::udash-auth:$udashVersion",
     // type-safe wrapper for Twitter Bootstrap
     ivy"io.udash::udash-bootstrap4::$udashVersion",
     // type-safe wrapper for Highcharts
@@ -66,9 +61,9 @@ object Deps {
 
 }
 
-object shared extends ScalaModule {
+object shared extends ScalaJSModule {
   def scalaVersion = Deps.versionOfScala
-
+  def scalaJSVersion = Deps.versionOfScalaJs
   def ivyDeps = Deps.shareDeps
 }
 
